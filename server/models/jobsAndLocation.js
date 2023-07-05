@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const Job = require('./Job');
-const locations = require('./Location');
 
 const JobAndLocationSchema = new mongoose.Schema({
     jobs:[{type:mongoose.Schema.Types.ObjectId, ref:'Job'}],

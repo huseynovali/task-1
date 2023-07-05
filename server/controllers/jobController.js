@@ -9,7 +9,15 @@ const jobController = {
       res.status(500).json(error);
     }
   },
-
+  getJobLocations : async (req, res) => {
+    const { jobId } = req.params;
+    try {
+      const jobLocations = await JobAndLocation.find({ job: jobId }).populate('location');
+      res.status(200).json(jobLocations);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
 
   createJob: async (req, res) => {
     const { title, summary, description, minSalary, maxSalary } = req.body;
